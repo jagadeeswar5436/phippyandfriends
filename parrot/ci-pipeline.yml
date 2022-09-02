@@ -11,7 +11,7 @@ trigger:
 pr: none
 
 pool:
-  vmImage: ubuntu-latest
+  name: ubuntu-latest
 
 variables:
 - template: ../common/ci-vars-template.yml
