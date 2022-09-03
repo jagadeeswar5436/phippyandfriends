@@ -1,4 +1,4 @@
-trigger:
+
 - task: DockerCompose@0
   inputs:
     containerregistrytype: 'Azure Container Registry'
@@ -6,6 +6,7 @@ trigger:
     azureContainerRegistry: '{"loginServer":"mywebappcontainer.azurecr.io", "id" : "/subscriptions/91826c8a-55bb-45c5-83ed-5c9df875354c/resourceGroups/MyWebApp/providers/Microsoft.ContainerRegistry/registries/MyWebAppcontainer"}'
     dockerComposeFile: '**/docker-compose.yml'
     action: 'Run a Docker Compose command'
+trigger:
   batch: true
   branches:
     include: 
