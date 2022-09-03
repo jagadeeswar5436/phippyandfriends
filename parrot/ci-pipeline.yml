@@ -1,11 +1,3 @@
-
-- task: DockerCompose@0
-  inputs:
-    containerregistrytype: 'Azure Container Registry'
-    azureSubscription: 'Azure subscription 1(91826c8a-55bb-45c5-83ed-5c9df875354c)'
-    azureContainerRegistry: '{"loginServer":"mywebappcontainer.azurecr.io", "id" : "/subscriptions/91826c8a-55bb-45c5-83ed-5c9df875354c/resourceGroups/MyWebApp/providers/Microsoft.ContainerRegistry/registries/MyWebAppcontainer"}'
-    dockerComposeFile: '**/docker-compose.yml'
-    action: 'Run a Docker Compose command'
 trigger:
   batch: true
   branches:
@@ -21,4 +13,11 @@ pr: none
 pool:
   name: Default
 
+variables:
+- template: ../common/ci-vars-template.yml
+  parameters:
+      projectName: parrot
+  # define 3 more variables: registryName, registryLogin and registryPassword in the build pipeline in UI
 
+steps:
+- template: ../common/ci-steps-template.yml
